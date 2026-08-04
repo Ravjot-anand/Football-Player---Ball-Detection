@@ -1,19 +1,13 @@
 # ⚽ AI Football Player & Ball Detection and Tracker
 
 > **My First YOLO Computer Vision Project!** 🚀  
-> An end-to-end computer vision pipeline for football match video analysis — detecting players, referees, and the ball, tracking player movements across frames, clustering team jersey colors, interpolating ball trajectories, and detecting ball possession in real time.
+> An end-to-end computer vision pipeline for football match video analysis — detecting players, referees, and the ball, tracking player movements across frames, clustering team jersey colors and interpolating ball trajectories.
 
 ---
 
 ## 📽️ Demo & Overview
 
-> **Note:** *Insert your project demo video/GIF here!*
-
-```
-[ Your Demo Video / GIF Here ]
-Brief: Real-time player tracking, team color assignment, ball interpolation, and dynamic ball possession indicator.
-```
-
+https://github.com/user-attachments/assets/7f9014d0-e271-4ea0-b20f-de23ab183d67
 ---
 
 ## 📌 Project Highlights
@@ -140,8 +134,7 @@ cd football-tracker
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-pip install -r requirements.txt
-# Or install core packages directly:
+# Install core packages directly:
 pip install ultralytics supervision opencv-python numpy pandas scikit-learn roboflow
 ```
 
@@ -183,7 +176,7 @@ results = model.train(
 
 After training completes, copy the generated best weights file to the `models/` directory:
 ```bash
-cp runs/detect/train/weights/best.pt models/best10.pt
+cp runs/detect/train/weights/best.pt models/best.pt
 ```
 
 ---
