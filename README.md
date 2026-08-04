@@ -1,29 +1,30 @@
-# ⚽ AI Football Player & Ball Detection and Tracker
+# AI Football Player & Ball Detection and Tracker
 
-> **My First YOLO Computer Vision Project!** 🚀  
-> An end-to-end computer vision pipeline for football match video analysis — detecting players, referees, and the ball, tracking player movements across frames, clustering team jersey colors and interpolating ball trajectories.
+> **My First YOLO Computer Vision Project**  
+> An end-to-end computer vision pipeline for football match video analysis — detecting players, referees, and the ball, tracking player movements across frames, clustering team jersey colors, and interpolating ball trajectories.
 
 ---
 
-## 📽️ Demo & Overview
+## Demo & Overview
 
-https://github.com/user-attachments/assets/7f9014d0-e271-4ea0-b20f-de23ab183d67
+<video src="https://github.com/user-attachments/assets/7f9014d0-e271-4ea0-b20f-de23ab183d67" controls="controls" width="100%"></video>
+
 ---
 
-## 📌 Project Highlights
+## Project Highlights
 
 - **Custom Object Detection**: Fine-tuned **YOLO11** model trained to detect 4 classes: `player`, `goalkeeper`, `referee`, and `ball`.
 - **Multi-Object Tracking (MOT)**: Integrated **Supervision ByteTrack** for persistent player ID tracking across video frames.
 - **Robust Team Color Clustering**: 
   - Upper-torso chest cropping with **HSV color space masking** to filter out green pitch grass.
-  - Multi-frame sampling and **$K$-Means clustering** ($k=2$) with majority voting per player track to prevent team flickering across frames.
+  - Multi-frame sampling and **K-Means clustering** ($k=2$) with majority voting per player track to prevent team flickering across frames.
   - Goalkeeper jersey override support for distinct kit colors.
 - **Ball Trajectory Interpolation**: Uses Pandas quadratic/linear interpolation to smooth and reconstruct missing ball detections across fast-moving frames.
 - **Ball Possession Attribution**: Calculates minimum Euclidean distance between player foot coordinates and the ball position to attribute possession dynamically.
 
 ---
 
-## 🤖 Understanding YOLO (You Only Look Once)
+## Understanding YOLO (You Only Look Once)
 
 ### How YOLO Works
 Unlike traditional multi-stage detectors (like R-CNN) that first generate region proposals and then classify them, **YOLO (You Only Look Once)** treats object detection as a single regression problem:
@@ -38,7 +39,7 @@ This project utilizes **YOLO11** (fine-tuned from `yolo11x.pt`), trained on a cu
 
 ---
 
-## 🏗️ Project Architecture & Pipeline
+## Project Architecture & Pipeline
 
 ```
                               ┌────────────────────────┐
@@ -89,17 +90,17 @@ This project utilizes **YOLO11** (fine-tuned from `yolo11x.pt`), trained on a cu
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 football/
-├── input-videos/              <-- 📥 ADD YOUR INPUT VIDEOS HERE (Ignored by Git)
+├── input-videos/              <-- Add input videos here (Ignored by Git)
 │   └── .gitkeep
-├── output-videos/             <-- 📤 GENERATED OUTPUT VIDEOS ARE SAVED HERE (Ignored by Git)
+├── output-videos/             <-- Generated output videos saved here (Ignored by Git)
 │   └── .gitkeep
-├── models/                    <-- 🧠 PLACE TRAINED YOLO WEIGHTS HERE (.pt weights ignored by Git)
+├── models/                    <-- Place trained YOLO weights here (.pt weights ignored by Git)
 │   └── .gitkeep
-├── stubs/                     <-- ⚡ CACHED DETECTION PICKLE STUBS FOR FAST ITERATION
+├── stubs/                     <-- Cached detection pickle stubs
 │   └── .gitkeep
 ├── Player_Ball_Assigner/      <-- Ball possession logic module
 │   └── player_ball_assigner.py
@@ -121,7 +122,7 @@ football/
 
 ---
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the Repository
 ```bash
@@ -140,7 +141,7 @@ pip install ultralytics supervision opencv-python numpy pandas scikit-learn robo
 
 ---
 
-## 📊 Dataset Download & Model Training
+## Dataset Download & Model Training
 
 ### 1. Download Dataset from Roboflow
 The dataset contains labeled images for players, referees, goalkeepers, and footballs. 
@@ -181,7 +182,7 @@ cp runs/detect/train/weights/best.pt models/best.pt
 
 ---
 
-## 🚀 Running the Tracker
+## Running the Tracker
 
 ### 1. Add Input Video
 Place your raw match video file in the `input-videos/` directory:
@@ -203,16 +204,16 @@ output-videos/08fd33_4_output.avi
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Computer Vision**: OpenCV, Ultralytics YOLO11, Supervision (ByteTrack)
-- **Machine Learning**: Scikit-Learn ($K$-Means Clustering)
+- **Machine Learning**: Scikit-Learn (K-Means Clustering)
 - **Data & Math**: NumPy, Pandas
 - **Language**: Python 3.10+
 
 ---
 
-## 🤝 Acknowledgments & Credits
+## Acknowledgments & Credits
 
 - [Ultralytics YOLO](https://github.com/ultralytics/ultralytics) for state-of-the-art real-time object detection models.
 - [Roboflow](https://roboflow.com/) for dataset hosting and annotations.
