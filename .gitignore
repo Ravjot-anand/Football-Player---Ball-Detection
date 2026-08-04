@@ -1,0 +1,37 @@
+# Python & Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+*.log
+
+# PyTorch Weights & Model Files
+*.pt
+*.pth
+*.onnx
+*.engine
+models/*.pt
+yolo*.pt
+runs/
+
+# Datasets
+football-players-detection-*/
+
+# Media Directories (Keep directory structure via .gitkeep, ignore video files)
+input-videos/*
+!input-videos/.gitkeep
+output-videos/*
+!output-videos/.gitkeep
+
+# Cache Stubs
+stubs/*
+!stubs/.gitkeep
+
+# IDEs & System Files
+.vscode/
+.idea/
+.DS_Store
+.ipynb_checkpoints/
